@@ -17,13 +17,13 @@ class BodyCard extends Component {
             incorrect: 0
         }
         this.guns = gunshots.map((gun) => (
-            <Button className="m-2" 
-            variant='info'
-            onClick={this.guessGun}>{gun.name}</Button>
+            <Button className="m-2"
+                variant='info'
+                onClick={this.guessGun}>{gun.name}</Button>
         ))
     }
 
-    guessGun(){
+    guessGun() {
         //TODO: Implement Guessing
     }
 
@@ -31,7 +31,7 @@ class BodyCard extends Component {
         return (
             <div className='text-light p-4 mb-4 rounded bg-secondary'>
                 <Container>
-                    <Row>
+                    <Row className='align-items-center'>
                         <Col xs={5}>
                             <h1>
                                 20m - <span className='correct'>{this.state.correct}</span> / <span className='incorrect'>{this.state.incorrect}</span>
@@ -40,16 +40,9 @@ class BodyCard extends Component {
                         <Col>
                             <Button variant='success'>Play Sound</Button>
                         </Col>
-                    </Row>
-                    <Row className='mb-4'>
-                        <ButtonGroup>
-                            <Button variant='danger'>Reset</Button>
-                            <Button>Compact</Button>
-                            <Button>Medium</Button>
-                            <Button>Long</Button>
-                            <Button>Shotgun</Button>
-                            <Button>Special</Button>
-                        </ButtonGroup>
+                        <Col>
+                            <img src={"/images/mystery.png"} className='img-fluid gun-image' />
+                        </Col>
                     </Row>
                     <Row>
                         <Col>

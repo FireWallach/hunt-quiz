@@ -5,3 +5,7 @@
 .incorrect {
     color: #dc143c;
 }
+
+.gun-image {
+    max-width: 50%;
+}
