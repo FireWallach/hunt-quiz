@@ -1,3 +1,7 @@
+.navbar-dark {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .correct {
   color: #7cfc00;
 }
@@ -8,12 +12,26 @@
 
 .gun-image {
   max-width: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .gun-thumbnail {
-  max-width: 100px;
+  width: 100px;
+}
+
+.mystery-gun {
+  height: 150px;
 }
 
 .choice-button {
-  height: 120px;
+  height: 170px;
+  width: 170px;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+}
+
+h1 {
+    font-size: x-large;
 }
