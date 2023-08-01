@@ -242,7 +242,7 @@ const gunshots = [
         "range": "20m",
         "ammo": "Medium",
         "sound": "sounds/Vetterli71KarabinerSilencer.mp3",
-        "image": "images/Vetterli71KarabinerSilencer.jpg"
+        "image": "images/Vetterli71KarabinerSilencer.png"
     },
     {
         "name": "Winfield 1887 Terminus",
@@ -284,7 +284,7 @@ const gunshots = [
         "range": "20m",
         "ammo": "Medium",
         "sound": "sounds/WinfieldM1876CentennialShortySilencer.mp3",
-        "image": "images/WInfieldM1876CentennialShortySilencer.jpg"
+        "image": "public\images/WinfieldM1876CentennialShortySilencer.png"
     },
 ]
 
