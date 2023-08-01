@@ -16,7 +16,8 @@ class BodyCard extends Component {
             isGuessed: false,
             thumbnailUrl: '/images/mystery.png',
             timeLeft: 3,
-            choiceCount: 4
+            choiceCount: 4,
+            streak: 0
         }
     }
 
@@ -37,20 +38,20 @@ class BodyCard extends Component {
 
     guessGun = (gunName) => {
         if (gunName === this.state.choices[this.state.answerIndex].name) {
-            console.log('Correct')
             this.setState(prevState => ({
                 correct: prevState.correct + 1,
                 clicked: { ...prevState.clicked, [gunName]: 'success' },
                 isGuessed: true,
-                thumbnailUrl: prevState.choices[prevState.answerIndex].image
+                thumbnailUrl: prevState.choices[prevState.answerIndex].image,
+                streak: prevState.streak + 1
             }));
         } else {
-            console.log('Incorrect')
             this.setState(prevState => ({
                 incorrect: prevState.incorrect + 1,
                 clicked: { ...prevState.clicked, [gunName]: 'danger' },
                 isGuessed: true,
-                thumbnailUrl: prevState.choices[prevState.answerIndex].image
+                thumbnailUrl: prevState.choices[prevState.answerIndex].image,
+                streak: 0
             }));
         }
         this.startCountdown();
@@ -75,13 +76,11 @@ class BodyCard extends Component {
             });
         }, 1000);
 
-        // Calculate correctness rate and update choice count
-        const correctnessRate = this.getCorrectnessRate();
         let newChoiceCount = this.state.choiceCount;
 
-        if (correctnessRate >= 0.8 && this.state.choiceCount < gunshots.length) {
+        if (this.state.streak > 2 && this.state.choiceCount < gunshots.length) {
             newChoiceCount++;
-        } else if (correctnessRate <= 0.6 && this.state.choiceCount > 4) {
+        } else if (this.state.streak == 0 && this.state.choiceCount > 4) {
             newChoiceCount--;
         }
 
@@ -108,13 +107,6 @@ class BodyCard extends Component {
             clicked: {},
             thumbnailUrl: '/images/mystery.png'
         });
-    }
-
-
-
-    getCorrectnessRate() {
-        const total = this.state.correct + this.state.incorrect;
-        return total > 0 ? this.state.correct / total : 1;
     }
 
     generateChoices = (numChoices) => {
@@ -146,7 +138,7 @@ class BodyCard extends Component {
             const clicked = this.state.clicked[gun.name];
             let variant, icon;
             if (clicked) {
-                variant = `${clicked}`;
+                variant = clicked;
                 icon = clicked === 'success' ? <FaCheckCircle /> : <FaTimesCircle />;
             } else {
                 variant = 'outline-light';
