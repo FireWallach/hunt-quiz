@@ -255,36 +255,36 @@ const gunshots = [
         "name": "Winfield 1893 Slate",
         "range": "20m",
         "ammo": "Shotgun",
-        "sound": "public/sounds/Winfield1893Slate.mp3",
-        "image": "public/images/Winfield1893Slate.webp"
+        "sound": "sounds/Winfield1893Slate.mp3",
+        "image": "images/Winfield1893Slate.webp"
     },
     {
         "name": "Winfield M1873",
         "range": "20m",
         "ammo": "Compact",
-        "sound": "public/sounds/WinfieldM1873.mp3",
-        "image": "public/images/WinfieldM1873.webp"
+        "sound": "sounds/WinfieldM1873.mp3",
+        "image": "images/WinfieldM1873.webp"
     },
     {
         "name": "Winfield M1873C Silencer",
         "range": "20m",
         "ammo": "Compact",
-        "sound": "public/sounds/WinfieldM1873CSilencer.mp3",
-        "image": "public/images/WinfieldM1873CSilencer.webp"
+        "sound": "sounds/WinfieldM1873CSilencer.mp3",
+        "image": "images/WinfieldM1873CSilencer.webp"
     },
     {
-        "name": "Winfield M1876 Centnnial",
+        "name": "Winfield M1876 Centennial",
         "range": "20m",
         "ammo": "Medium",
-        "sound": "public/sounds/WinfieldM1876Centennial.mp3",
-        "image": "public/images/WinfieldM1876Centennial.webp"
+        "sound": "sounds/WinfieldM1876Centennial.mp3",
+        "image": "images/WinfieldM1876Centennial.webp"
     },
     {
         "name": "Winfield M1876 Centennial Shorty Silencer",
         "range": "20m",
         "ammo": "Medium",
-        "sound": "public/sounds/WinfieldM1876CentennialShortySilencer.mp3",
-        "image": "public/images/WInfieldM1876CentennialShortySilencer.jpg"
+        "sound": "sounds/WinfieldM1876CentennialShortySilencer.mp3",
+        "image": "images/WInfieldM1876CentennialShortySilencer.jpg"
     },
 ]
 
