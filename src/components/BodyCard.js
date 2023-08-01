@@ -146,7 +146,7 @@ class BodyCard extends Component {
             const clicked = this.state.clicked[gun.name];
             let variant, icon;
             if (clicked) {
-                variant = `outline-${clicked}`;
+                variant = `${clicked}`;
                 icon = clicked === 'success' ? <FaCheckCircle /> : <FaTimesCircle />;
             } else {
                 variant = 'outline-light';
