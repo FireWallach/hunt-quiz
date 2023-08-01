@@ -60,7 +60,7 @@ const gunshots = [
         "range": "20m",
         "ammo": "Special",
         "sound": "sounds/Crossbow.mp3",
-        "image": "images/Caldwell92NewArmy.webp"
+        "image": "images/Crossbow.webp"
     },
     {
         "name": "Crown & King Auto-5",
