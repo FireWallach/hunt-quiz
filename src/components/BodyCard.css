@@ -1,11 +1,19 @@
 .correct {
-    color: #7cfc00;
+  color: #7cfc00;
 }
 
 .incorrect {
-    color: #dc143c;
+  color: #dc143c;
 }
 
 .gun-image {
-    max-width: 50%;
+  max-width: 50%;
+}
+
+.gun-thumbnail {
+  max-width: 100px;
+}
+
+.choice-button {
+  height: 120px;
 }

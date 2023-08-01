@@ -11,6 +11,7 @@ class BodyCard extends Component {
             incorrect: 0,
             choices: [],
             answerIndex: null,
+            clicked: {}
         }
     }
 
@@ -24,8 +25,15 @@ class BodyCard extends Component {
     }
 
     guessGun = (gunName) => {
-        //TODO: Implement Guessing
+        if (gunName === this.state.choices[this.state.answerIndex].name) {
+            console.log('Correct')
+            this.setState(prevState => ({ correct: prevState.correct + 1, clicked: { ...prevState.clicked, [gunName]: 'success' } }));
+        } else {
+            console.log('Incorrect')
+            this.setState(prevState => ({ incorrect: prevState.incorrect + 1, clicked: { ...prevState.clicked, [gunName]: 'danger' } }));
+        }
     }
+
 
     generateChoices = (numChoices) => {
         let choices = [];
@@ -35,6 +43,12 @@ class BodyCard extends Component {
                 choices.push(gunshots[index]);
             }
         }
+        choices = choices.sort((a, b) => {
+            if (a.item1 === b.item1) {
+                return a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
+            }
+            return 0;
+        });
         this.setState({
             choices,
             answerIndex: this.getRandomInt(0, numChoices - 1),
@@ -46,16 +60,26 @@ class BodyCard extends Component {
     }
 
     renderChoiceButtons() {
-        return this.state.choices.map((gun) => (
-            <Button
-                key={gun.name}
-                className="m-2 mt-5"
-                variant='info'
-                onClick={() => this.guessGun(gun.name)}
-            >
-                {gun.name}
-            </Button>
-        ));
+        return this.state.choices.map((gun) => {
+            const variant = this.state.clicked[gun.name] ? `outline-${this.state.clicked[gun.name]}` : 'outline-light';
+            return (<Col>
+                <Button
+                    key={gun.name}
+                    className="m-2 mt-5 choice-button"
+                    variant={variant}
+                    onClick={() => this.guessGun(gun.name)}
+                >
+                    <Container>
+                        <Row>
+                            <Col>
+                                <img className="gun-thumbnail" src={gun.image} />
+                            </Col>
+                        </Row>
+                    </Container>
+                    {gun.name}
+                </Button>
+            </Col>)
+        });
     }
 
     render() {
@@ -76,10 +100,10 @@ class BodyCard extends Component {
                             <img src={"/images/mystery.png"} className='img-fluid gun-image' alt="Mystery Gun" />
                         </Col>
                     </Row>
-                    <Row>
-                        <Col>
-                            {this.renderChoiceButtons()}
-                        </Col>
+                    <Row className='justify-content-md-center align-items-center'>
+
+                        {this.renderChoiceButtons()}
+
                     </Row>
                 </Container>
             </div>
