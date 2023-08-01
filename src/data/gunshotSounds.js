@@ -284,7 +284,7 @@ const gunshots = [
         "range": "20m",
         "ammo": "Medium",
         "sound": "sounds/WinfieldM1876CentennialShortySilencer.mp3",
-        "image": "public\images/WinfieldM1876CentennialShortySilencer.png"
+        "image": "images/WinfieldM1876CentennialShortySilencer.png"
     },
 ]
 
