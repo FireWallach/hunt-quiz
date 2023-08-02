@@ -203,6 +203,7 @@ class BodyCard extends Component {
                         </Col>
                         <Col>
                             <img src={this.state.thumbnailUrl} className='img-fluid mystery-gun' alt="Mystery Gun" />
+                            {this.state.isGuessed && <h2>{this.state.choices[this.state.answerIndex].name}</h2>}
                         </Col>
                     </Row>
                     <Row className='justify-content-md-center align-items-center'>
