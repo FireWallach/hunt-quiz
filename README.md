@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Hunt: Showdown Gunshot Sound Quiz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Hunt: Showdown Gun Sound Learner is a web application designed to help players of Hunt: Showdown learn how to identify different guns by the sounds they make when fired. The app provides an interactive experience where users can listen to gunshot noises and then select the correct gun from a list of possible options. The difficulty of the game adapts based on the user's performance, making it more challenging as they improve and easier if they struggle.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Play Sound: Users can click the "Play Sound" button to listen to the gunshot noise associated with a specific gun.
+- Guess the Gun: Players are presented with a variable number of possible gun options and must select the correct one corresponding to the played sound.
+- Adaptive Difficulty: The game's difficulty adjusts based on the user's performance, offering more or fewer options to choose from.
+- Credits: The app credits Kamille, a person on Twitter who inspired the project and created a similar web app called [Weapon Sound Learner](https://kamille-twitter-url.com/weapon-sound-learner).
+- Collaboration: The web app was created by Dylan Wallach in collaboration with Elle McMillen, who provided feature ideas and conducted user testing.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to Play
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Click the "Play Sound" button to hear a gunshot sound.
+2. Review the list of gun options provided on the screen.
+3. Select the gun that matches the sound you heard.
+4. If you guessed correctly, you'll move on to the next sound. Otherwise, the game will adjust the difficulty to make it easier for you.
 
-### `npm test`
+## Credits
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Kamille: The project was inspired by Kamille's "Weapon Sound Learner" web app. You can find Kamille on Twitter [here](https://twitter.com/Kamille_92).
+- Crytek GmbH: Gunshot sounds and gun images used in the app are the property of Crytek GmbH, the creators of Hunt: Showdown.
 
-### `npm run build`
+## Installation and Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository: `git clone https://github.com/your-username/hunt-showdown-sound-learner.git`
+2. Navigate to the project directory: `cd hunt-quiz`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run start-dev`
+5. Open your web browser and go to `http://localhost:3000` to access the app.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Production Server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application is hosted on our production server. You can access it by clicking [here]([https://hunt-showdown-gun-sound-learner.com](https://hunt-gunshot-quiz-d4fa5c106494.herokuapp.com/)).
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Contributions are welcome! If you find any bugs or have ideas for improvements, please open an issue or submit a pull request.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](LICENSE) file for more details.
