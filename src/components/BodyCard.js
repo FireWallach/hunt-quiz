@@ -227,7 +227,7 @@ class BodyCard extends Component {
                         </Col>
                     </Row>
                     <Row className='align-items-center justify-content-center mt-4'>
-                        <ButtonGroup>
+                        {false && <ButtonGroup>
                             {this.ammoTypes.map((buttonName, index) => {
                                 return (<Button
                                     variant={this.state.filter === index ? 'light' : 'outline-light'}
@@ -236,7 +236,7 @@ class BodyCard extends Component {
                                     {buttonName ? buttonName : <ImCross />}
                                 </Button>)
                             })}
-                        </ButtonGroup>
+                        </ButtonGroup>}
                     </Row>
                     <Row className='justify-content-md-center align-items-center'>
                         {this.renderChoiceButtons()}
