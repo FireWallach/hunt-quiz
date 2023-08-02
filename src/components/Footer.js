@@ -7,7 +7,7 @@ class Footer extends Component {
         return (
             <Container fluid className="footer py-3 text-center bg-dark text-light">
                 <br />
-                <p>Infused with Caffeine, Snacks, and Nerdy Zeal - Created by Dylan Wallach</p>
+                <p>Infused with Caffeine, Snacks, and Nerdy Zeal - Created by Dylan Wallach with collaboration by Elle McMillen</p>
                 <br />
                 <p>Heavily Inspired by <a href='https://twitter.com/Kamille_92'>Kamille's</a> <a href='https://hunt.kamille.ovh/'>Weapon Sound Leaner</a> from the <a href='https://reddit.com/r/huntshowdown'>Hunt: Showdown Subreddit</a></p>
                 <p>
