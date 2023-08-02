@@ -102,7 +102,7 @@ const gunshots = [
         "range": "20m",
         "ammo": "Special",
         "sound": "sounds/HuntingBow.mp3",
-        "image": "images/HuntingBow.webp"
+        "image": "images/HuntingBow.png"
     },
     {
         "name": "Lebel 1886",
