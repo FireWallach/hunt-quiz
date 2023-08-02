@@ -36,7 +36,7 @@ class BodyCard extends Component {
     }
 
     handleSoundButtonClick = () => {
-        const audio = new Audio(this.state.choices[this.state.answerIndex].sound);
+        const audio = new Audio(this.state.fullChoices[this.state.answerIndex].sound);
         audio.play();
     }
 
@@ -60,12 +60,12 @@ class BodyCard extends Component {
     }
 
     guessGun = (gunName) => {
-        if (gunName === this.state.choices[this.state.answerIndex].name) {
+        if (gunName === this.state.fullChoices[this.state.answerIndex].name) {
             this.setState(prevState => ({
                 correct: prevState.correct + 1,
                 clicked: { ...prevState.clicked, [gunName]: 'success' },
                 isGuessed: true,
-                thumbnailUrl: prevState.choices[prevState.answerIndex].image,
+                thumbnailUrl: prevState.fullChoices[prevState.answerIndex].image,
                 streak: prevState.streak + 1
             }));
         } else {
@@ -73,7 +73,7 @@ class BodyCard extends Component {
                 incorrect: prevState.incorrect + 1,
                 clicked: { ...prevState.clicked, [gunName]: 'danger' },
                 isGuessed: true,
-                thumbnailUrl: prevState.choices[prevState.answerIndex].image,
+                thumbnailUrl: prevState.fullChoices[prevState.answerIndex].image,
                 streak: 0
             }));
         }
@@ -128,7 +128,8 @@ class BodyCard extends Component {
             isGuessed: false,
             timeLeft: 3,
             clicked: {},
-            thumbnailUrl: '/images/mystery.png'
+            thumbnailUrl: '/images/mystery.png',
+            filter: 0
         });
     }
 
@@ -223,11 +224,11 @@ class BodyCard extends Component {
                         </Col>
                         <Col>
                             <img src={this.state.thumbnailUrl} className='img-fluid mystery-gun' alt="Mystery Gun" />
-                            {this.state.isGuessed && <h2>{this.state.choices[this.state.answerIndex].name}</h2>}
+                            {this.state.isGuessed && <h2>{this.state.fullChoices[this.state.answerIndex].name}</h2>}
                         </Col>
                     </Row>
                     <Row className='align-items-center justify-content-center mt-4'>
-                        {false && <ButtonGroup>
+                        <ButtonGroup>
                             {this.ammoTypes.map((buttonName, index) => {
                                 return (<Button
                                     variant={this.state.filter === index ? 'light' : 'outline-light'}
@@ -236,7 +237,7 @@ class BodyCard extends Component {
                                     {buttonName ? buttonName : <ImCross />}
                                 </Button>)
                             })}
-                        </ButtonGroup>}
+                        </ButtonGroup>
                     </Row>
                     <Row className='justify-content-md-center align-items-center'>
                         {this.renderChoiceButtons()}
