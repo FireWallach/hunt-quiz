@@ -24,6 +24,7 @@
   height: 150px;
   border-radius: 20px;
   box-shadow: 0 0 10px #000000;
+  margin-left: 40px !important;
 }
 
 .choice-button {
@@ -38,6 +39,6 @@ h1 {
   font-size: x-large;
 }
 
-.control-button{
+.control-button {
   width: 12em;
 }
