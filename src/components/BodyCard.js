@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col, Button, ProgressBar, ButtonGroup } from 'react-bootstrap';
 import { FaCheckCircle, FaTimesCircle, FaPlay } from 'react-icons/fa';
+import { ImCross } from 'react-icons/im';
 import gunshots from '../data/gunshotSounds';
 import "./BodyCard.css"
 
@@ -10,6 +11,7 @@ class BodyCard extends Component {
         this.state = {
             correct: 0,
             incorrect: 0,
+            fullChoices: [],
             choices: [],
             answerIndex: null,
             clicked: {},
@@ -17,8 +19,10 @@ class BodyCard extends Component {
             thumbnailUrl: '/images/mystery.png',
             timeLeft: 3,
             choiceCount: 4,
-            streak: 0
+            streak: 0,
+            filter: 0
         }
+        this.ammoTypes = ["", "Compact", "Medium", "Long", "Shotgun", "Special"]
     }
 
     componentDidMount() {
@@ -34,6 +38,25 @@ class BodyCard extends Component {
     handleSoundButtonClick = () => {
         const audio = new Audio(this.state.choices[this.state.answerIndex].sound);
         audio.play();
+    }
+
+    handleFilterClick(index) {
+        let filteredChoices = [];
+        if (index > 0) {
+            filteredChoices = this.state.fullChoices.filter(choice => {
+                return choice.ammo === this.ammoTypes[index];
+            })
+        } else {
+            filteredChoices = this.state.fullChoices;
+        }
+
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                choices: filteredChoices,
+                filter: index
+            }
+        })
     }
 
     guessGun = (gunName) => {
@@ -123,8 +146,10 @@ class BodyCard extends Component {
             }
             return 0;
         });
+        let fullChoices = [...choices]
         this.setState({
             choices,
+            fullChoices,
             answerIndex: this.getRandomInt(0, numChoices - 1),
         });
     }
@@ -171,11 +196,6 @@ class BodyCard extends Component {
         });
     }
 
-
-
-
-
-
     render() {
         const { correct, incorrect } = this.state;
 
@@ -206,10 +226,20 @@ class BodyCard extends Component {
                             {this.state.isGuessed && <h2>{this.state.choices[this.state.answerIndex].name}</h2>}
                         </Col>
                     </Row>
+                    <Row className='align-items-center justify-content-center mt-4'>
+                        <ButtonGroup>
+                            {this.ammoTypes.map((buttonName, index) => {
+                                return (<Button
+                                    variant={this.state.filter === index ? 'light' : 'outline-light'}
+                                    onClick={() => this.handleFilterClick(index)}
+                                >
+                                    {buttonName ? buttonName : <ImCross />}
+                                </Button>)
+                            })}
+                        </ButtonGroup>
+                    </Row>
                     <Row className='justify-content-md-center align-items-center'>
-
                         {this.renderChoiceButtons()}
-
                     </Row>
                 </Container>
             </div>
