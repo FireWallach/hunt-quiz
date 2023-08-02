@@ -11,7 +11,7 @@ class Footer extends Component {
                 <br />
                 <p>Heavily Inspired by <a href='https://twitter.com/Kamille_92'>Kamille's</a> <a href='https://hunt.kamille.ovh/'>Weapon Sound Leaner</a> from the <a href='https://reddit.com/r/huntshowdown'>Hunt: Showdown Subreddit</a></p>
                 <p>
-                    The sounds used on this site are not claimed as my own; any copyrights and/or trademarks associated with these sounds belong to <a href='https://www.crytek.com/'>Crytek GmbH</a>.</p>
+                    The sounds and images used on this site are not claimed as my own; any copyrights and/or trademarks associated with these sounds belong to <a href='https://www.crytek.com/'>Crytek GmbH</a>.</p>
                 <Row className="justify-content-center">
                     <Col xs="auto">
                         <a href="https://github.com/FireWallach" target="_blank" rel="noopener noreferrer">
