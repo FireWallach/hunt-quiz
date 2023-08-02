@@ -78,7 +78,7 @@ class BodyCard extends Component {
 
         let newChoiceCount = this.state.choiceCount;
 
-        if (this.state.streak > 2 && this.state.choiceCount < gunshots.length) {
+        if (this.state.streak > 1 && this.state.choiceCount < gunshots.length) {
             newChoiceCount++;
         } else if (this.state.streak == 0 && this.state.choiceCount > 4) {
             newChoiceCount--;
