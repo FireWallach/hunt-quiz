@@ -26,7 +26,7 @@ class BodyCard extends Component {
     }
 
     componentDidMount() {
-        this.generateChoices(this.state.choiceCount);
+        this.generateChoices();
     }
 
     componentWillUnmount() {
@@ -58,6 +58,12 @@ class BodyCard extends Component {
             }
         })
     }
+
+    handleSkipButtonClick = () => {
+        this.resetQuestion();
+    }
+
+
 
     guessGun = (gunName) => {
         if (gunName === this.state.fullChoices[this.state.answerIndex].name) {
@@ -94,11 +100,33 @@ class BodyCard extends Component {
                 } else {
                     clearInterval(this.countdownInterval);
                     this.countdownInterval = null;
+                    this.resetQuestion();
                     return { timeLeft: 0 };
                 }
             });
         }, 1000);
+    }
 
+    resetQuestion = () => {
+        if (!this.state.isGuessed) {
+            return;
+        }
+        if (this.countdownInterval) {
+            clearInterval(this.countdownInterval);
+            this.countdownInterval = null;
+        }
+
+        this.generateChoices();
+        this.setState({
+            isGuessed: false,
+            timeLeft: 3,
+            clicked: {},
+            thumbnailUrl: '/images/mystery.png',
+            filter: 0
+        });
+    }
+
+    generateChoices = () => {
         let newChoiceCount = this.state.choiceCount;
 
         if (this.state.streak > 1 && this.state.choiceCount < gunshots.length) {
@@ -111,31 +139,8 @@ class BodyCard extends Component {
             choiceCount: newChoiceCount
         });
 
-        // Set a timeout to reset the question after 5 seconds
-        setTimeout(() => {
-            this.resetQuestion();
-        }, 5000);
-    }
-
-    resetQuestion = () => {
-        if (this.countdownInterval) {
-            clearInterval(this.countdownInterval);
-            this.countdownInterval = null;
-        }
-
-        this.generateChoices(this.state.choiceCount);
-        this.setState({
-            isGuessed: false,
-            timeLeft: 3,
-            clicked: {},
-            thumbnailUrl: '/images/mystery.png',
-            filter: 0
-        });
-    }
-
-    generateChoices = (numChoices) => {
         let choices = [];
-        while (choices.length < numChoices) {
+        while (choices.length < newChoiceCount) {
             let index = this.getRandomInt(0, gunshots.length - 1);
             if (!choices.some(gun => gun.name === gunshots[index].name)) {
                 choices.push(gunshots[index]);
@@ -151,7 +156,7 @@ class BodyCard extends Component {
         this.setState({
             choices,
             fullChoices,
-            answerIndex: this.getRandomInt(0, numChoices - 1),
+            answerIndex: this.getRandomInt(0, this.state.choiceCount - 1),
         });
     }
 
@@ -172,26 +177,28 @@ class BodyCard extends Component {
             }
             return (
                 <Col>
-                    <Button
-                        key={gun.name}
-                        className="m-2 mt-5 choice-button"
-                        variant={variant}
-                        onClick={() => this.guessGun(gun.name)}
-                        disabled={this.state.isGuessed}
-                    >
-                        <Container>
-                            <Row>
-                                <Col>
-                                    <img className="gun-thumbnail" src={gun.image} alt='gun thumbnail' />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    {icon} {gun.name}
-                                </Col>
-                            </Row>
-                        </Container>
-                    </Button>
+                    <Row className='align-items-center justify-content-around'>
+                        <Button
+                            key={gun.name}
+                            className="m-2 mt-5 choice-button"
+                            variant={variant}
+                            onClick={() => this.guessGun(gun.name)}
+                            disabled={this.state.isGuessed}
+                        >
+                            <Container>
+                                <Row>
+                                    <Col>
+                                        <img className="gun-thumbnail" src={gun.image} alt='gun thumbnail' />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        {icon} {gun.name}
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Button>
+                    </Row>
                 </Col>
             );
         });
@@ -220,7 +227,10 @@ class BodyCard extends Component {
                             </ProgressBar>
                         </Col>
                         <Col>
-                            <Button onClick={this.handleSoundButtonClick} variant='success'><FaPlay /> Play Sound</Button>
+                            <Row className='justify-content-md-center'>
+                                <Button onClick={this.handleSoundButtonClick} className='control-button mb-1' variant='success'><FaPlay /> Play Sound</Button>
+                                {this.state.isGuessed && <Button onClick={this.handleSkipButtonClick} className='control-button' variant='success'>Skip Timer</Button>}
+                            </Row>
                         </Col>
                         <Col>
                             <img src={this.state.thumbnailUrl} className='img-fluid mystery-gun' alt="Mystery Gun" />

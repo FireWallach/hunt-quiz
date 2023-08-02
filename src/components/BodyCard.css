@@ -37,3 +37,7 @@
 h1 {
   font-size: x-large;
 }
+
+.control-button{
+  width: 12em;
+}
