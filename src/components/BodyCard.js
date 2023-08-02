@@ -80,7 +80,7 @@ class BodyCard extends Component {
 
         if (this.state.streak > 1 && this.state.choiceCount < gunshots.length) {
             newChoiceCount++;
-        } else if (this.state.streak == 0 && this.state.choiceCount > 4) {
+        } else if (this.state.streak === 0 && this.state.choiceCount > 4) {
             newChoiceCount--;
         }
 
@@ -191,7 +191,7 @@ class BodyCard extends Component {
                     <Row className='align-items-center'>
                         <Col xs={5}>
                             <h1>
-                                <span className='correct'>{correct}</span> / <span className='incorrect'>{incorrect}</span> {this.state.isGuessed && <span>-- Next Round in {this.state.timeLeft}s</span>}
+                                <span className='correct'>{correct}</span> / <span className='incorrect'>{incorrect}</span> | Streak: {this.state.streak} {this.state.isGuessed && <span>-- Next Round in {this.state.timeLeft}s</span>}
                             </h1>
                             <ProgressBar>
                                 <ProgressBar variant="success" now={correctPercentage} key={1} label={`${correctPercentage}%`} />
